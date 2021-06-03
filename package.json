@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node back-end-work/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon back-end-work/server.js",
+    "client": "npm start --prefix front-end-work",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,11 @@
   },
   "homepage": "https://github.com/RANGA-CY/MERN-E-Commerce-App#readme",
   "dependencies": {
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

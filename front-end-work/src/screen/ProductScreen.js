@@ -16,6 +16,7 @@ const ProductScreen = ({ match }) => {
   };
   useEffect(() => {
     fetchProduct();
+    // eslint-disable-next-line
   }, []);
   return (
     <>
