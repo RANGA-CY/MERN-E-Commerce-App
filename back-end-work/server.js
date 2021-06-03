@@ -1,7 +1,7 @@
-const express = require('express');
-const dotenv = require('dotenv');
+import express from 'express';
+import dotenv from 'dotenv';
+import products from './products.js';
 dotenv.config();
-const products = require('./products');
 const app = express();
 app.get('/', (req, res) => {
   res.status(200).send('hello people');
