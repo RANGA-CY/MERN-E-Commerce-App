@@ -1,7 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import products from './products.js';
+import connectDB from './config/db.js';
 dotenv.config();
+connectDB();
 const app = express();
 app.get('/', (req, res) => {
   res.status(200).send('hello people');
