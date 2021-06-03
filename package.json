@@ -1,0 +1,23 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "this is a mern application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node back-end-work/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RANGA-CY/MERN-E-Commerce-App.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RANGA-CY/MERN-E-Commerce-App/issues"
+  },
+  "homepage": "https://github.com/RANGA-CY/MERN-E-Commerce-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
