@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const ordertSchema = mongoose.Schema(
+const orderSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -68,7 +68,7 @@ const ordertSchema = mongoose.Schema(
       type: Date,
     },
     isDelivered: {
-      type: Date,
+      type: Boolean,
       required: true,
       default: false,
     },
@@ -81,6 +81,6 @@ const ordertSchema = mongoose.Schema(
   }
 );
 
-const Order = mongoose.model('Order', ordertSchemaSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 export default Order;
