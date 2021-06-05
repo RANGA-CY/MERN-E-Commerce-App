@@ -6,12 +6,14 @@ import HomeScreen from './screen/HomeScreen';
 import ProductScreen from './screen/ProductScreen';
 import { Container } from 'react-bootstrap';
 import CartScreen from './screen/CartScreen';
+import LoginScreen from './screen/LoginScreen';
 const App = () => {
   return (
     <Router>
       <Header />
       <main className='py-3'>
         <Container>
+          <Route path='/login' exact component={LoginScreen}></Route>
           <Route path='/' exact component={HomeScreen}></Route>
           <Route path='/product/:id' exact component={ProductScreen}></Route>
           <Route path='/cart/:id?' exact component={CartScreen}></Route>
