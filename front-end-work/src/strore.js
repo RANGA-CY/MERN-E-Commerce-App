@@ -4,7 +4,10 @@ import {
   productListReducer,
   productDetailsReducer,
 } from './reducer/productReducer.js';
-import { userLoginReducer } from './reducer/userReducers.js';
+import {
+  userLoginReducer,
+  userRegisterReducer,
+} from './reducer/userReducers.js';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { cartReducer } from './reducer/cartReducers';
 const middleware = [thunk];
@@ -13,6 +16,7 @@ const reducer = combineReducers({
   productDetails: productDetailsReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
+  userRegister: userRegisterReducer,
 });
 const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
