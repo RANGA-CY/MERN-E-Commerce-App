@@ -9,6 +9,9 @@ import CartScreen from './screen/CartScreen';
 import LoginScreen from './screen/LoginScreen';
 import RegisterScreen from './screen/RegisterScreen';
 import ProfileScreen from './screen/ProfileScreen';
+import ShippingScreen from './screen/ShippingScreen';
+import PaymentScreen from './screen/PaymentMethodScreen';
+import PlaceOrderScreen from './screen/PlaceOrderScreen';
 const App = () => {
   return (
     <Router>
@@ -19,6 +22,9 @@ const App = () => {
           <Route path='/login' exact component={LoginScreen}></Route>
           <Route path='/' exact component={HomeScreen}></Route>
           <Route path='/profile' exact component={ProfileScreen}></Route>
+          <Route path='/shipping' exact component={ShippingScreen}></Route>
+          <Route path='/payment' exact component={PaymentScreen}></Route>
+          <Route path='/placeorder' component={PlaceOrderScreen}></Route>
           <Route path='/product/:id' exact component={ProductScreen}></Route>
           <Route path='/cart/:id?' exact component={CartScreen}></Route>
         </Container>
