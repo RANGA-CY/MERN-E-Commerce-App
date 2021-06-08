@@ -12,7 +12,11 @@ import {
 } from './reducer/userReducers.js';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { cartReducer } from './reducer/cartReducers';
-import { orderCreateReducer } from './reducer/orderReducers.js';
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+  orderPayReducer,
+} from './reducer/orderReducers.js';
 const middleware = [thunk];
 const reducer = combineReducers({
   productList: productListReducer,
@@ -23,6 +27,8 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
   orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
 });
 const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
