@@ -59,11 +59,11 @@ const UserEditScreen = ({ match, history }) => {
           <Message variant='danger'>{error}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId='email'>
+            <Form.Group controlId='name'>
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter Email'
+                placeholder='Enter name'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
