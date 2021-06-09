@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import {
   productListReducer,
   productDetailsReducer,
+  productDeleteReducer,
 } from './reducer/productReducer.js'
 import {
   userLoginReducer,
@@ -25,6 +26,7 @@ const middleware = [thunk]
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  productDelete: productDeleteReducer,
   cart: cartReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,

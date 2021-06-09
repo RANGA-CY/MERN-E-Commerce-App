@@ -15,6 +15,7 @@ import PlaceOrderScreen from './screen/PlaceOrderScreen'
 import OrderScreen from './screen/OrderScreen'
 import UserListScreen from './screen/UserListScreen'
 import UserEditScreen from './screen/UserEditScreen'
+import ProductListScreen from './screen/ProductListScreen'
 
 const App = () => {
   return (
@@ -42,6 +43,11 @@ const App = () => {
             path='/admin/user/:id/edit'
             exact
             component={UserEditScreen}
+          ></Route>
+          <Route
+            path='/admin/productlist'
+            exact
+            component={ProductListScreen}
           ></Route>
         </Container>
       </main>
