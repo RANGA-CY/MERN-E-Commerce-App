@@ -1,58 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom';
-import { Form, Row, Col, Button, Table } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
-import { getUserDeatils, updateUserProfile } from '../actions/userAction.js';
-import { listMyOrders } from '../actions/orderActions.js';
-import { orderListMyReducer } from '../reducer/orderReducers';
+import { Form, Row, Col, Button, Table } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+import { getUserDeatils, updateUserProfile } from '../actions/userAction.js'
+import { listMyOrders } from '../actions/orderActions.js'
+import { orderListMyReducer } from '../reducer/orderReducers'
 
 const ProfileScreen = ({ location, history }) => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState(null);
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState(null)
+  const redirect = location.search ? location.search.split('=')[1] : '/'
+  const dispatch = useDispatch()
 
-  const userDetails = useSelector((state) => state.userDetails);
-  console.log(userDetails);
-  const { loading, error, user } = userDetails;
+  const userDetails = useSelector((state) => state.userDetails)
+  // console.log(userDetails);
+  const { loading, error, user } = userDetails
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
-  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
-  const { success } = userUpdateProfile;
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
 
-  const orderListMy = useSelector((state) => state.orderListMy);
-  const { orders, error: errorOrders, loading: loadingOrders } = orderListMy;
+  const orderListMy = useSelector((state) => state.orderListMy)
+  const { orders, error: errorOrders, loading: loadingOrders } = orderListMy
 
   useEffect(() => {
     if (!userInfo) {
-      history.push('/login');
+      history.push('/login')
     } else {
       if (!user.name) {
-        dispatch(getUserDeatils('profile'));
-        dispatch(listMyOrders());
+        dispatch(getUserDeatils('profile'))
+        dispatch(listMyOrders())
       } else {
-        setName(user.name);
-        setEmail(user.email);
+        setName(user.name)
+        setEmail(user.email)
       }
     }
-  }, [dispatch, history, userInfo, redirect, user]);
+  }, [dispatch, history, userInfo, redirect, user])
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (password !== confirmPassword) {
-      setMessage('Passwords do not match');
+      setMessage('Passwords do not match')
     } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }));
+      dispatch(updateUserProfile({ id: user._id, name, email, password }))
     }
-  };
+  }
   return (
     <Row>
       <Col md={3}>
@@ -159,14 +159,14 @@ const ProfileScreen = ({ location, history }) => {
                       </LinkContainer>
                     </td>
                   </tr>
-                );
+                )
               })}
             </tbody>
           </Table>
         )}
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default ProfileScreen;
+export default ProfileScreen
