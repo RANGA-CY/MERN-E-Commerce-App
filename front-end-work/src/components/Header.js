@@ -1,15 +1,17 @@
-import React from 'react';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../actions/userAction.js';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userAction.js'
+import SearchBox from '../components/SearchBoxComponent.js'
 const Header = ({ history }) => {
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+  const dispatch = useDispatch()
   const logoutHandler = () => {
-    dispatch(logout());
-  };
+    dispatch(logout())
+  }
   return (
     <header>
       <Navbar bg='dark' expand='lg' variant='dark' collapseOnSelect>
@@ -19,6 +21,9 @@ const Header = ({ history }) => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+            <Route
+              render={({ history }) => <SearchBox history={history} />}
+            ></Route>
             <Nav className='ml-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>
@@ -61,7 +66,7 @@ const Header = ({ history }) => {
         </Container>
       </Navbar>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
