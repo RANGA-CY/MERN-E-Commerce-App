@@ -66,12 +66,9 @@ const ProductEditScreen = ({ match, history }) => {
   }
 
   const uploadFileHandler = async (e) => {
-    console.log('hello')
     const file = e.target.files[0]
-    console.log(file)
     const formData = new FormData()
     formData.append('image', file)
-    console.log(formData)
     setUploading(true)
     try {
       const config = {
@@ -126,7 +123,7 @@ const ProductEditScreen = ({ match, history }) => {
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter Image'
+                placeholder='Enter image'
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>

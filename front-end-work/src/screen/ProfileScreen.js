@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import { getUserDeatils, updateUserProfile } from '../actions/userAction.js'
 import { listMyOrders } from '../actions/orderActions.js'
 import { orderListMyReducer } from '../reducer/orderReducers'
-
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants.js'
 const ProfileScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
@@ -35,7 +35,8 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if (!user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDeatils('profile'))
         dispatch(listMyOrders())
       } else {
@@ -43,7 +44,7 @@ const ProfileScreen = ({ location, history }) => {
         setEmail(user.email)
       }
     }
-  }, [dispatch, history, userInfo, redirect, user])
+  }, [dispatch, history, userInfo, redirect, user, success])
 
   const submitHandler = (e) => {
     e.preventDefault()
